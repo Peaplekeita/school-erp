@@ -1,24 +1,31 @@
 # school-erp
 Projet d'application de gestion scolaire
 
-## API minimale (enseignement fondamental)
+## Backend Django (Python) - enseignement fondamental
 
-Cette première version fournit une API HTTP simple pour :
+Cette version fournit un backend Django pour :
 - enregistrer les élèves
 - enregistrer les classes
 - inscrire des élèves dans des classes
 - consulter les élèves d'une classe
 
-### Lancer le projet
+### Installer les dépendances
 
 ```bash
-npm start
+python -m pip install -r requirements.txt
+```
+
+### Lancer le serveur
+
+```bash
+python manage.py migrate
+python manage.py runserver
 ```
 
 ### Exécuter les tests
 
 ```bash
-npm test
+python manage.py test
 ```
 
 ### Endpoints disponibles
@@ -29,4 +36,4 @@ npm test
 - `GET /classes`
 - `POST /classes` avec `{ "name": "CM1-A", "level": "CM1" }`
 - `POST /enrollments` avec `{ "studentId": 1, "classId": 1 }`
-- `GET /classes/:id/students`
+- `GET /classes/<id>/students`
